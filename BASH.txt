@@ -1,0 +1,9 @@
+export PKG_CONFIG_PATH="/opt/homebrew/opt/qt/lib/pkgconfig:/opt/homebrew/lib/pkgconfig"
+/opt/homebrew/Cellar/qt/6.8.2_1/bin/moc viewer.h -o moc_viewer.cpp
+clang++ -std=c++17 main.cpp viewer.cpp moc_viewer.cpp controller.cpp data_fetcher.cpp feature_engineering.cpp ml_model.cpp \
+  -o stockTraderApp \
+  $(pkg-config --cflags --libs Qt6Widgets Qt6Charts mlpack) \
+  -L/opt/homebrew/lib \
+  -lboost_serialization -lboost_program_options -lcurl \
+  -Wno-deprecated-declarations
+./stockTraderApp

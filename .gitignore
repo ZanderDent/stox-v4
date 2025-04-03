@@ -1,0 +1,11 @@
+# Build artifacts
+stockTraderApp
+moc_*.cpp
+*.o
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store 
